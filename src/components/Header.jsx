@@ -1,6 +1,9 @@
 import { useDispatch } from "react-redux";
 import { getMovies,getQuery } from "../features/movieSlice";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import logo from "../images/logo.jpg"
+
 const Header = () => {
   const dispatch = useDispatch()
 
@@ -22,12 +25,14 @@ const Header = () => {
   return (
     <div className="header">
       <div className="container">
-        <img src="images/logo.jpg" alt="" />
+        <Link to="/">
+        <img src={logo} alt="" />
+        </Link>
         <form action="post">
           <input type="text" onChange={(e) => searchForMovie(e.target.value)}/>
         <i className="bi bi-search"></i>
         </form>
-      </div>
+      </div> 
     </div>
   );
 };

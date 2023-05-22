@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getMovies, getMoviesReq1 } from "../features/movieSlice";
+import { getMovies } from "../features/movieSlice";
 import axios from "axios";
 import Paginationcom from "./pagination"
+import Header from "./Header";
+import { Link } from "react-router-dom";
 
 const MovieList = () => {
   const dispatch = useDispatch();
@@ -18,11 +20,14 @@ const MovieList = () => {
     dispatch(getMovies(req.data));
   };
   return (
+    <>
+    <Header/>
     <div className="movies">
       <div className="container">
         {movies.length >= 1 ? (
           movies.map((movie) => (
-            <div key={movie.id} className="movie">
+            <Link key={movie.id} to={`movieDetails/${movie.id}`}>
+            <div  className="movie">
               <img
                 src={`https://image.tmdb.org/t/p/w500` + movie.poster_path}
                 alt={movie.title}
@@ -39,13 +44,15 @@ const MovieList = () => {
                 <p className="rel-date">{movie.release_date}</p>
               </div>
             </div>
+            </Link>
           ))
         ) : (
           <h3 className="empty-list">there's no movies to show</h3>
         )}
-        <Paginationcom/>
       </div>
+        <Paginationcom/>
     </div>
+    </>
   );
 };
 

@@ -12,7 +12,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(0, 0, 49);
 }
-
+a {
+  text-decoration: none;
+  color: white;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
