@@ -1,5 +1,5 @@
 #---------------------!!!!!!!!!!!!!!!!!!!!!!!-------------------
-<h1>not complete , and there is a simple bug at the pagination section</h1>
+<h1>not complete</h1>
 #---------------------!!!!!!!!!!!!!!!!!!!!!!!-------------------
 
 # Getting Started with Create React App
