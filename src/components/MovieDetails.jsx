@@ -12,7 +12,7 @@ const MovieDetails = () => {
   console.log(params.id);
   const getMoviesReq = async () => {
     const req = await axios.get(
-      `https://api.themoviedb.org/3/movie/${params.id}?api_key=c93f440aabe098bfdb038163bd285432`
+      `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_movie_API_KEY}`
     );
     setDetails(req);
     console.log(req);

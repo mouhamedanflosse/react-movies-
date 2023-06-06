@@ -10,13 +10,13 @@ const Header = () => {
   const searchForMovie = async (query) => {
     if (query === "") {
       const req = await axios.get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=c93f440aabe098bfdb038163bd285432&language=en-US&page=1"
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_movie_API_KEY}&language=en-US&page=1`
       )
       
       return dispatch(getMovies(req.data))
     }
     const req = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=c93f440aabe098bfdb038163bd285432&query=${query}&language=en-US&page=3`
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_movie_API_KEY}&query=${query}&language=en-US&page=3`
     )
     dispatch(getMovies(req.data))
     dispatch(getQuery(query))

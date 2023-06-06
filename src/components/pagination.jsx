@@ -8,10 +8,10 @@ const Paginationcom = () => {
   const { pages, keyword } = useSelector((state) => state.movies);
   const handleChange = async (data) => {
     const req = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=c93f440aabe098bfdb038163bd285432&language=en-US&page=${data.target.innerText}`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_movie_API_KEY}&language=en-US&page=${data.target.innerText}`
     );
     const req1 = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=c93f440aabe098bfdb038163bd285432&query=${keyword}&language=en-US&page=${data.target.innerText}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_movie_API_KEY}&query=${keyword}&language=en-US&page=${data.target.innerText}`
     );
     keyword === ""
       ? dispatch(getMovies(req.data))
